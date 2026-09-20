@@ -1,26 +1,37 @@
+//Product Analysis
 
-const marks = [45, 72, 33, 90, 18, 67, 50, 29];
+const prices = [120, 450, 80, 999, 250, 1500, 60, 700];
 
+const exclusive = prices.forEach((highPrice) => {
 
-const passMark = marks.filter((passMarks) => passMarks >= 40)
-const failMark = marks.filter((failMarks) => failMarks < 40)
+    hp = highPrice > 500  
 
+    if(hp) {
+        evenOdd = highPrice % 2 === 0 ? "even" : "odd"
 
-console.log("total students", marks.length)
-totalPass = passMark.length
-totalfail = failMark.length
-console.log("total pass",totalPass)
-console.log("total fail",totalfail)
-
-
-const findEvenOdd = passMark.forEach((find) => {
-
-    const findPass = find % 2 === 0
-
-    if(findPass) {
-        console.log(find, "- even")
-    } else{
-        console.log(find, "- odd")
+        console.log(`${highPrice}, - Expensive - ${evenOdd}`)
+    } else {
+         console.log(highPrice, "- Affordable")
     }
-}) 
+    
+})
 
+
+
+const totalExclusive = prices.filter((highPrice) => highPrice >= 500)
+const totalAffordable = prices.filter((lowPrice) => lowPrice < 500)
+
+let highestPrice = 0;
+
+prices.forEach((price) => {
+    if (price > highestPrice) {
+        highestPrice = price;
+    }
+});
+
+const te = totalExclusive.length
+const ta = totalAffordable.length
+
+console.log("total exclusive:", te)
+console.log("total affordable:", ta)
+console.log("Highest Price: ", highestPrice)
