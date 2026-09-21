@@ -1,37 +1,110 @@
-//Product Analysis
+//Problem - User Analysis
 
-const prices = [120, 450, 80, 999, 250, 1500, 60, 700];
+const users = [
+    { name: "Rahul", age: 22, active: true },
+    { name: "Amit", age: 17, active: false },
+    { name: "Sneha", age: 25, active: true },
+    { name: "Priya", age: 16, active: true },
+    { name: "Rohit", age: 30, active: false }
+];
 
-const exclusive = prices.forEach((highPrice) => {
 
-    hp = highPrice > 500  
 
-    if(hp) {
-        evenOdd = highPrice % 2 === 0 ? "even" : "odd"
+const userName = users.forEach((names) => {
+   let nm = names.name
+    let ages = names.age >= 18 ? "adult" : "minor"
+    let activeConform = names.active === true ? "active" : "inactive"
+    let evenOdd = names.age % 2 === 0 ?  "even" : "odd"
 
-        console.log(`${highPrice}, - Expensive - ${evenOdd}`)
-    } else {
-         console.log(highPrice, "- Affordable")
-    }
+    let inactiveOff = activeConform === "inactive" ? "" : `- ${evenOdd}`
+
     
+
+
+
+    
+
+    console.log(`${nm} - ${ages} - ${activeConform}  ${inactiveOff}`)
 })
 
 
 
-const totalExclusive = prices.filter((highPrice) => highPrice >= 500)
-const totalAffordable = prices.filter((lowPrice) => lowPrice < 500)
+const activeUsers = users.filter((user) => user.active === true);
 
-let highestPrice = 0;
+const inactiveUsers = users.filter((user) => user.active === false);
 
-prices.forEach((price) => {
-    if (price > highestPrice) {
-        highestPrice = price;
-    }
-});
+console.log("Active:", activeUsers.length);
+console.log("Inactive:", inactiveUsers.length);
 
-const te = totalExclusive.length
-const ta = totalAffordable.length
 
-console.log("total exclusive:", te)
-console.log("total affordable:", ta)
-console.log("Highest Price: ", highestPrice)
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ---
+
+// **Problem: User Analysis**
+
+// ```javascript
+// const users = [
+//     { name: "Rahul", age: 22, active: true },
+//     { name: "Amit", age: 17, active: false },
+//     { name: "Sneha", age: 25, active: true },
+//     { name: "Priya", age: 16, active: true },
+//     { name: "Rohit", age: 30, active: false }
+// ];
+
+// ```
+
+// Write a program to:
+
+// 1. Label users aged 18 or older as **"Adult"**.
+// 2. Label users under 18 as **"Minor"**.
+// 3. Count only the **active users**.
+// 4. Count only the **inactive users**.
+// 5. For **active users**, check if their age is **even** or **odd**.
+// 6. Finally, find the **name** and **age** of the user with the **highest age**.
+
+// **Expected output roughly:**
+
+// ```text
+// Rahul - Adult - Active - Even
+// Amit - Minor - Inactive
+// Sneha - Adult - Active - Odd
+// Priya - Minor - Active - Even
+// Rohit - Adult - Inactive
+
+// Active: 3
+// Inactive: 2
+
+// Oldest User: Rohit - 30
+
+// ```
+
+// **Rules:**
+
+// Try using these this time:
+
+// * `forEach()` ✅
+// * `filter()` ✅
+// * `if/else` ✅
+// * `%` (Modulus operator) ✅
+// * `let` / `const` ✅
+
+// **Forbidden:**
+
+// * ❌ Do NOT use `Math.max()`
+// * ❌ Do NOT use `reduce()`
+// * ❌ Do NOT use `sort()`
+
+
+
